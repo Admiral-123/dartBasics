@@ -16,6 +16,7 @@ void main() {
   HPchar.remove('umbridge');
   //in final we can add and remove data from arr but we cant override entire arr
 
+  // ignore: unused_local_variable
   const SWchar = ['skywalker', 'leia', 'yoda'];
 
   // SWchar.add('obi-wan'); // cant modify const list
