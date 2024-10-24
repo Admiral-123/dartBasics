@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 void main() {
   var a = new myClass();
   a.printName('varun');
