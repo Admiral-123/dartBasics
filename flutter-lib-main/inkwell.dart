@@ -59,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onTap: () {
                     print('clicked on text');
                   },
+                  splashColor: Colors.white,
                   child: const Text(
                     'INDIA',
                     style: TextStyle(
