@@ -71,3 +71,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 }
+
+
+/*
+
+InkWell is a widget that provides a tap effect with a splash animation.
+Commonly wraps other widgets to make them interactive.
+Key callbacks include onTap, onDoubleTap, and onLongPress.
+Requires a Material ancestor for the splash effect to display correctly.
+
+*/
