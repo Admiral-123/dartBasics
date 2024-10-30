@@ -17,8 +17,11 @@ class NewApp extends StatelessWidget {
 
       title: 'NewApp', // title of app
       theme: ThemeData(
-          colorScheme:
-              ColorScheme.fromSeed(seedColor: Colors.blue)), // theme of app
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          primarySwatch: Colors.blue,
+          appBarTheme: const AppBarTheme(
+              backgroundColor:
+                  Color.fromARGB(255, 90, 181, 255))), // theme of app
       debugShowCheckedModeBanner: false,
       home: const DashBoardScreen(), // homepage of the app
     );
