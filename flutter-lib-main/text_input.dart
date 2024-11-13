@@ -58,6 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   //enabled: false,
                   controller: usernames,
                   decoration: InputDecoration(
+                      // shows text on border of textfield even when textfield isnt on focus
+                      labelText: Text("username"),
                       focusedBorder: OutlineInputBorder(
                           // when border is clicked
                           borderRadius: BorderRadius.circular(20),
