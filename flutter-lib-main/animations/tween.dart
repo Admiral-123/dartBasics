@@ -91,3 +91,34 @@ class _MyHomePage extends State<MyHomePage>
         ));
   }
 }
+
+/*
+
+Role of SingleTickerProviderStateMixin
+
+What is a Ticker?
+
+A Ticker generates a signal at a fixed interval, which is often used in animations to refresh the animation value on each frame.
+
+Why Use SingleTickerProviderStateMixin?
+
+
+The AnimationController needs a vsync to optimize performance by ensuring the animation is active only when the widget is visible.
+
+The SingleTickerProviderStateMixin provides a single ticker for this purpose.
+
+Using this mixin with vsync: this links the ticker lifecycle with the widget's lifecycle, preventing resource wastage.
+
+
+Advantages:
+
+Efficient frame rendering.
+
+Prevents unnecessary processing when the widget is off-screen.
+
+
+When to Use Other Mixins?
+
+If you have multiple animations in the same widget, use TickerProviderStateMixin (which supports multiple tickers).
+
+*/
