@@ -70,4 +70,21 @@ class DBHelper {
 
     return rowsAffected > 0; // to check if the data is sent to the db
   }
+
+  // removal
+  // void removeNote() async {
+  //   var db = await getDB();
+  //   db.delete(TABLE_NOTE, {COLUMN_NOTE_TITLE});
+  // }
+
+  // reading all data
+  Future<List<Map<String, dynamic>>> getAllNotes() async {
+    var db = await getDB();
+    // select * from note, (* means all)
+    List<Map<String, dynamic>> myData = await db.query(TABLE_NOTE);
+
+    return myData;
+  }
+
+  // update data
 }
