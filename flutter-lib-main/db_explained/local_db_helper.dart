@@ -20,7 +20,7 @@ class DBHelper {
   static final DBHelper getInstance = DBHelper._();
   // table note
   static final String TABLE_NOTE = "note";
-  static final String COLUM_NOTE_SNO = "s_no";
+  static final String COLUMN_NOTE_SNO = "s_no";
   static final String COLUMN_NOTE_TITLE = "title";
   static final String COLUMN_NOTE_DESC = "desc";
 
@@ -52,7 +52,7 @@ class DBHelper {
     return await openDatabase(dbPath, onCreate: (db, version) {
       // create all the tables here
       db.execute(// execute db
-          "create table $TABLE_NOTE ($COLUM_NOTE_SNO integer primary key autoincrement,  $COLUMN_NOTE_TITLE text,$COLUMN_NOTE_DESC text)");
+          "create table $TABLE_NOTE ($COLUMN_NOTE_SNO integer primary key autoincrement,  $COLUMN_NOTE_TITLE text,$COLUMN_NOTE_DESC text)");
     }, version: 1);
     // version of db schemas(structure)
   }
@@ -71,12 +71,6 @@ class DBHelper {
     return rowsAffected > 0; // to check if the data is sent to the db
   }
 
-  // removal
-  // void removeNote() async {
-  //   var db = await getDB();
-  //   db.delete(TABLE_NOTE, {COLUMN_NOTE_TITLE});
-  // }
-
   // reading all data
   Future<List<Map<String, dynamic>>> getAllNotes() async {
     var db = await getDB();
@@ -87,4 +81,26 @@ class DBHelper {
   }
 
   // update data
+  Future<bool> updateNote(
+      {required String title, required String desc, required int id}) async {
+    var db = await getDB();
+
+    int rowsAffected = await db.update(
+        TABLE_NOTE,
+        {
+          COLUMN_NOTE_TITLE: title,
+          COLUMN_NOTE_DESC: desc,
+        },
+        where: "$COLUMN_NOTE_SNO = $id");
+
+    return rowsAffected > 0;
+  }
+
+// delete data
+  Future<void> deleteNote({required int id}) async {
+    var db = await getDB();
+
+    await db.delete(TABLE_NOTE,
+        where: "$COLUMN_NOTE_SNO = ?", whereArgs: [id.toString()]);
+  }
 }
