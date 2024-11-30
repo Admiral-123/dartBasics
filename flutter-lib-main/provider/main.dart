@@ -58,15 +58,27 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // if listen isnt important then always keep it false as if we dont declare it false it'd stay true
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              // if listen isnt important then always keep it false as if we dont declare it false it'd stay true
 
-          Provider.of<CounterProvider>(context, listen: false).incrementCount();
+              Provider.of<CounterProvider>(context, listen: false)
+                  .incrementCount();
 
-          // context.read<CounterProvider>().incrementCount();  // can also do it like this
-        },
-        child: const Icon(Icons.add),
+              // context.read<CounterProvider>().incrementCount();  // can also do it like this
+            },
+            child: const Icon(Icons.add),
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              context.read<CounterProvider>().decrementCount();
+            },
+            child: Icon(Icons.remove),
+          )
+        ],
       ),
     );
   }
