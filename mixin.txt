@@ -1,0 +1,3 @@
+mixin is a class whose method and fields can
+be used by other classes without inheriting it
+
